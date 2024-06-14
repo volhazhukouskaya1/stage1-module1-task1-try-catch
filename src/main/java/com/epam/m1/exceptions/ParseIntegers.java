@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class ParseIntegers {
 
-    private static final List<String> WORDS =
+    private static final List <String> WORDS =
             Arrays.asList(
                     "JDK 17 has released on 14 September 2021 with 10 new features, 2 feature removals and 2 feature deprecations."
                             .split(" "));
@@ -21,8 +21,13 @@ public class ParseIntegers {
         String justWords = "";
         while (words.hasNext()) {
             String next = words.next();
-            int number = Integer.parseInt(next);
-            // todo: complete it
+            int number;
+
+            try { number = Integer.parseInt(next);}
+            catch (NumberFormatException e1) { number=0; justWords =justWords + " "+ next ; }
+
+            sum += number;
+
         }
         System.out.println("Sum is " + sum);
         System.out.println("Just words:" + justWords);
